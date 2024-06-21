@@ -55,7 +55,7 @@ router.get("/posts/:id/comments", (req, res) => {
       console.log(hbsData[0].comments)
       userData.logged_in = req.session.logged_in;
       console.log(req.session);
-      res.render("posts", { ...hbsData[0], user: req.session.username });
+      res.render("posts", { ...hbsData[0], user: req.session.username, logged_in: req.session.logged_in});
     }).catch(err => {
         console.log(err)
     })
@@ -79,7 +79,7 @@ router.get("/profile", (req, res) => {
       console.log(hbsData)
       userData.logged_in = req.session.logged_in;
       console.log(req.session);
-      res.render("profile", { posts: hbsData, user: req.session.username, username:user.username });
+      res.render("profile", { posts: hbsData, user: req.session.username, username:user.username, logged_in: req.session.logged_in});
     }).catch(err => {
         console.log(err)
     })
@@ -101,7 +101,7 @@ router.get("/posts/:id/edit", (req, res) => {
       console.log(hbsData[0])
       userData.logged_in = req.session.logged_in;
       console.log(req.session);
-      res.render("editPost", { ...hbsData[0], user: req.session.username });
+      res.render("editPost", { ...hbsData[0], user: req.session.username, logged_in: req.session.logged_in});
     }).catch(err => {
         console.log(err)
     })
